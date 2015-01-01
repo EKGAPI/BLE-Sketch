@@ -23,7 +23,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #include <boards.h>
 #include <RBL_nRF8001.h>
 
-unsigned char *testData[32];
+unsigned char *testData[40];
 int count;
 
 void setup()
@@ -46,7 +46,7 @@ void setup()
   ble_begin();
   
   count = 0;
-  
+  char *test0 = "4.588";
   char *test1 = "4.453";
   char *test2 = "5.223";
   char *test3 = "4.223";
@@ -112,6 +112,15 @@ void setup()
   testData[29] = (unsigned char *)test30;
   testData[30] = (unsigned char *)test31;
   testData[31] = (unsigned char *)test32;
+  testData[32] = (unsigned char *)test0;
+  testData[33] = (unsigned char *)test0;
+  testData[34] = (unsigned char *)test0;
+  testData[35] = (unsigned char *)test0;
+  testData[36] = (unsigned char *)test0;
+  testData[37] = (unsigned char *)test0;
+  testData[38] = (unsigned char *)test0;
+  testData[39] = (unsigned char *)test0;
+  testData[40] = (unsigned char *)test0;
   
   // Enable serial debug
   Serial.begin(57600);
@@ -136,7 +145,7 @@ void loop()
   
   count = count + 1;
   
-  if (count > 31) {
+  if (count > 39) {
     count = 0;
   }
   digitalWrite(13, HIGH);
