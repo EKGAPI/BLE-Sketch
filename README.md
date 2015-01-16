@@ -23,6 +23,9 @@ This sketch broadcasts mock arrhythmia ECG data every 50ms in an infinite loop. 
 ##BLE-Sketch.ino##
 This sketch broadcasts 180 points of real ECG NSR data every 50ms. A light on the Arduino board flashes coorespondingly every 50ms.
 
+##BLE-testChunking.ino##
+This sketch was used to test the ability of the Arduino to chunk data points together as an attempt to shoehorn in higher time resolution. Since the time between Bluetooth events bottomed out at around 60ms, which is too high for a decent ECG trace, we explored the possibility of delivering multiple data points per event in order to mimic a higher time resolution. This turned out to be not a viable strategy, as the hardware has a write buffer of only 20 bytes, which would be filled by merely three data points (e.g. 4.555,4.798,4.356 is 18 bytes).
+
 ##LogSampleIntoCLangArray.js##
 A JS file you can run to convert an object in the following format:
 [
